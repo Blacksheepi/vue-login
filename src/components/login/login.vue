@@ -15,6 +15,7 @@
 				<el-form-item>
 					<el-input placeholder="密码" type="password" v-model="loginForm.password"></el-input>
 				</el-form-item>
+				<el-button>Login</el-button>
 			</el-form>
 		</div>
   </div>
@@ -44,18 +45,21 @@ export default {
 		background-color: #ffffff;
 		width: 432px;
 		.el-form {
-			padding: 0 20px;
+			padding: 20px;
 			.el-input {
+			}
+			.el-button {
+				width: 100%;
 			}
 		}
 		.log-bg {
-			background: url(../../assets/login-bg.jpg); 
 			width: 100%; 
-			height: 312px; 
+			height: 212px; 
+			background-color: #7dc5ea;
 			overflow: hidden;
 			.log-logo {
 				height: 80px; 
-				margin: 120px auto 25px; 
+				margin: 80px auto 25px; 
 				text-align: center; 
 				color: #1fcab3; 
 				font-weight: bold; 
