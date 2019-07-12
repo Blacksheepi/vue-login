@@ -36,7 +36,7 @@ export default {
 <style lang="less" scoped>
 #login { 
 	height: 100%;
-	background-image: url(../../assets/background.png);
+	background-image: url(~@assets/background.png);
 	background-size: cover;
 	display: flex;
 	justify-content: center;
