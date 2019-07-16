@@ -1,18 +1,29 @@
 <template>
   <div id="app">
+    <Header></Header>
     <transition name="fade">
-      <router-view/>
+      <router-view class="content" />
     </transition>
+    <Footer></Footer>
   </div>
 </template>
+<script>
+import Header from '@/components/header/header';
+import Footer from '@/components/footer/footer';
+export default {
+  components: {
+    Header,
+    Footer,
+  },
+};
+</script>
 
 <style lang="less">
-@import "./common/style/public.less";
+@import './common/style/public.less';
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   height: 100%;
 }

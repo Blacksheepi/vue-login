@@ -12,7 +12,9 @@ const config = {
   responseType: 'json',
 };
 
-axios.interceptors.request.use(
+let instance = axios.create(config);
+
+instance.interceptors.request.use(
   config => {
     NProgress.start();
     return config;
@@ -21,10 +23,22 @@ axios.interceptors.request.use(
     return Promise.reject(err);
   },
 );
-
-axios.interceptors.response.use(
+instance.interceptors.response.use(
   response => {
-    NProgress.done();
+    NProgress.done(response.config.method, response.status);
+    if (response.config.method === 'get') {
+      if (response.status === 200) {
+        return response.data;
+      } else {
+        Promise.reject(response);
+      }
+    } else if (response.config.method === 'post') {
+      if (response.status === 201) {
+        return response.data;
+      } else {
+        Promise.reject(response);
+      }
+    }
     return response;
   },
   err => {
@@ -32,4 +46,4 @@ axios.interceptors.response.use(
   },
 );
 
-export default axios.create(config);
+export default instance;
