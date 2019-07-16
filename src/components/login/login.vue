@@ -41,6 +41,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+
 #login {
   height: 100%;
   background-image: url(~@/assets/background.png);
